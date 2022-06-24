@@ -1,21 +1,6 @@
 "use strict";
 
-// console.log(document.querySelector(".message").textContent);
-// document.querySelector(".message").textContent = "Correct Number!🎉";
-// console.log(document.querySelector(".message").textContent);
-
-// document.querySelector(".number").textContent = 20;
-// document.querySelector(".score").textContent = 13;
-
-// document.querySelector(".guess").value = 15;
-// console.log(document.querySelector(".guess").value);
-
-//generate a random number
-//write Math.random method
-//use floor method
-//multiply by 20 and add 1
-
-const secretNumber = Math.floor(Math.random() * 20 + 1);
+let secretNumber = Math.floor(Math.random() * 20 + 1);
 let score = 20;
 
 document.querySelector(".check").addEventListener("click", function () {
@@ -47,6 +32,18 @@ document.querySelector(".check").addEventListener("click", function () {
       score--;
       document.querySelector(".score").textContent = score;
     }
+
+    //RESET THE GAME
+    document.querySelector(".again").addEventListener("click", () => {
+      secretNumber = Math.floor(Math.random() * 20 + 1);
+      document.querySelector(".number").textContent = "?";
+      document.querySelector(".message").textContent = "Start guessing...";
+      document.querySelector(".score").textContent = "20";
+      score = 20;
+      document.querySelector(".guess").value = "";
+      document.querySelector("body").style.backgroundColor = "#222";
+      document.querySelector(".number").style.width = "15rem";
+    });
 
     // When loses the game!!
   } else {
