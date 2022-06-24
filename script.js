@@ -20,6 +20,15 @@ document.querySelector(".check").addEventListener("click", function () {
       document.querySelector(".number").style.width = "30rem";
       document.querySelector(".number").textContent = secretNumber;
 
+      // HIGHSCORE FUNCTIONALITY
+      if (
+        document.querySelector(".score").textContent >
+        document.querySelector(".highscore").textContent
+      ) {
+        document.querySelector(".highscore").textContent =
+          document.querySelector(".score").textContent;
+      }
+
       // When too high!!
     } else if (guess > secretNumber) {
       document.querySelector(".message").textContent = "Too high! 📈";
@@ -51,3 +60,6 @@ document.querySelector(".check").addEventListener("click", function () {
     document.querySelector(".score").textContent = 0;
   }
 });
+
+// When win game, highscore = score
+// if new score is bigger than previous, highscore = new score
